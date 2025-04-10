@@ -12,5 +12,21 @@
   },
   "dependencies": {
     "remindplanner": "file:"
-  }
+  },
+  "description": "## What is CodeIgniter?",
+  "main": "postcss.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfaiz23/RemindPlanner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mfaiz23/RemindPlanner/issues"
+  },
+  "homepage": "https://github.com/mfaiz23/RemindPlanner#readme"
 }
