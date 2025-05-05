@@ -14,7 +14,7 @@ class DashboardController extends ResourceController
      */
     public function index()
     {
-        //
+        return view('dashboard/user');
     }
 
     /**
