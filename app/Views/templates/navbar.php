@@ -1,0 +1,1 @@
+<? $this->extends ('main'); ?>
