@@ -1,3 +1,4 @@
+<main class="main-wrapper">
 <header class="header">
         <div class="container-fluid">
           <div class="row">

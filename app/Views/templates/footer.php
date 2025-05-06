@@ -23,3 +23,4 @@
         </div>
         <!-- end container -->
       </footer>
+      </main>

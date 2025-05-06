@@ -14,4 +14,13 @@ $routes->get('/logout', 'AuthController::logout');
 $routes->get('/dashboard', 'DashboardController::index');
 
 
+$routes->get('categories', 'CategoriesController::index');
+$routes->get('categories/create', 'CategoriesController::create');
+$routes->post('categories/store', 'CategoriesController::store');
+$routes->get('categories/edit/(:num)', 'CategoriesController::edit/$1');
+$routes->post('categories/update/(:num)', 'CategoriesController::update/$1');
+$routes->get('categories/delete/(:num)', 'CategoriesController::delete/$1');
+
+
+
 

@@ -21,6 +21,8 @@
   <?= $this->include ('templates/sidebar'); ?>
 
     <?= $this->renderSection('content') ?>
+    <?= $this->renderSection('form_categories') ?>
+    <?= $this->renderSection('list_categories') ?>
    
 
     <?= $this->include('templates/footer') ?>
