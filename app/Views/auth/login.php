@@ -1,4 +1,4 @@
-<?= $this->extend('templates/main') ?>
+<?= $this->extend('templates/auth/main') ?>
 
 <?= $this->section('login') ?>
 <section class="signin-section">
@@ -82,7 +82,7 @@
                             <div class="button-group pt-40 pb-40 d-flex justify-content-center flex-wrap">
                                 <!-- Gunakan link dari controller -->
                                 <a href="<?= esc($googleButton) ?>" class="main-btn danger-btn-outline m-2">
-                                    <i class="lni lni-google mr-10"></i>
+                                <i class="lni lni-google mr-10"></i>
                                     Google
                                 </a>
                             </div>
@@ -97,4 +97,6 @@
         </div>
     </div>
 </section>
+
 <?= $this->endSection() ?>
+<?= $this->include('templates/footer') ?>

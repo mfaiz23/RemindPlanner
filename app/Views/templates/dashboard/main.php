@@ -17,10 +17,13 @@
   </head>
   <body
   >
-    
+  <?= $this->include ('templates/navbar'); ?>
+  <?= $this->include ('templates/sidebar'); ?>
 
-    <?= $this->renderSection('login') ?>
+    <?= $this->renderSection('content') ?>
+   
 
+    <?= $this->include('templates/footer') ?>
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
     <script src="<?= base_url('assets/js/fullcalendar.js') ?>"></script>
