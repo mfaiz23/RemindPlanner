@@ -9,7 +9,7 @@
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/main.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/fullcalendar.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('assets/css/lineicons.css') ?>" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link href="<?= base_url('assets/css/materialdesignicons.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/morris.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/loading-bar.min.css') ?>" rel="stylesheet">

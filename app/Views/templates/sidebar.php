@@ -1,19 +1,14 @@
 <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="index.html">
-          <img src="assets/images/logo/logo.svg" alt="logo" />
+      <a href="<?= base_url('/dashboard') ?>">
+          <h3>Remind Planner</h3>
         </a>
       </div>
       <nav class="sidebar-nav">
         <ul>
           <li class="nav-item nav-item">
             <a
-              href="#0"
-              data-bs-toggle="collapse"
-              data-bs-target="#ddmenu_1"
-              aria-controls="ddmenu_1"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+              href="<?= base_url('/dashboard') ?>"
             >
               <span class="icon">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +18,7 @@
                     d="M17.0833 10C17.7737 10 18.3432 9.43708 18.2408 8.75433C17.7005 5.14918 14.8508 2.29947 11.2457 1.75912C10.5629 1.6568 10 2.2263 10 2.91665V9.16666C10 9.62691 10.3731 10 10.8333 10H17.0833Z" />
                 </svg>
               </span>
-              <span class="text">Dashboard</span>
+              <span  class="text">Dashboard</span>
             </a>
 
           <li class="nav-item nav-item-has-children">
@@ -92,7 +87,7 @@
                 <a href="<?= base_url('categories/create') ?>"> Create Categories</a>
               </li>
               <li>
-                <a href="<?= base_url('categories') ?>"> List Categories </a>
+                <a href="<?= base_url('categories/list_categories') ?>"> List Categories </a>
               </li>
             </ul>
           </li>

@@ -1,28 +1,27 @@
 <?= $this->extend ('templates/dashboard/main') ?>
 
-<?= $this->section ('form_categories') ?>
+<?= $this->section ('content') ?>
 
 <div class="container">
-    <h2><?= isset($category) ? 'Edit' : 'Add' ?> Category</h2>
 
     <form action="<?= isset($category) ? base_url('categories/update/'.$category['id']) : base_url('categories/store') ?>" method="post">
         <?= csrf_field() ?>
 
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" id="name" value="<?= $category['name'] ?? '' ?>" required>
-        </div>
+        <div class="card-style mt-20 mb-30">
+                  <h6 class ="mb-25"><?= isset($category) ? 'Edit' : 'Add' ?> Category</h6>
+                  <div class="input-style-1">
+                    <label>Category Name</label>
+                    <input type="text" class="form-control" name="name" id="name" value="<?= $category['name'] ?? '' ?>" required>
+                  </div>
 
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" name="description" id="description"><?= $category['description'] ?? '' ?></textarea>
-        </div>
+                  <div class="input-style-1">
+                    <label>Description</label>
+                    <textarea class="form-control" name="description" id="description" rows="5"><?= $category['description'] ?? '' ?></textarea>
+                  </div>
 
-        <button type="submit" class="btn btn-primary"><?= isset($category) ? 'Update' : 'Create' ?></button>
+        <button type="submit" class="main-btn primary-btn rounded-full btn-hover"><a ><?= isset($category) ? 'Update' : 'Create' ?></a></button>
+        <a href="<?= base_url('categories') ?>" class="main-btn danger-btn-outline rounded-full btn-hover ml-10">Cancel</a>
 
-        <?php if (isset($category)) : ?>
-            <a href="<?= base_url('categories/delete/'.$category['id']) ?>" class="btn btn-danger" onclick="return confirm('Delete this category?')">Delete</a>
-        <?php endif ?>
     </form>
 </div>
 

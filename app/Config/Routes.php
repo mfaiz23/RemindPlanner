@@ -20,7 +20,7 @@ $routes->post('categories/store', 'CategoriesController::store');
 $routes->get('categories/edit/(:num)', 'CategoriesController::edit/$1');
 $routes->post('categories/update/(:num)', 'CategoriesController::update/$1');
 $routes->get('categories/delete/(:num)', 'CategoriesController::delete/$1');
-
+$routes->get('categories/list_categories', 'CategoriesController::index');
 
 
 
