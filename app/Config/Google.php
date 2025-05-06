@@ -8,7 +8,7 @@ class Google extends BaseConfig
 {
     public $clientID     = '';
     
-    public $clientSecret = 'G';
+    public $clientSecret = '';
     
     public $redirectUri  = 'http://localhost:8080/auth/googleCallback'; 
 }
