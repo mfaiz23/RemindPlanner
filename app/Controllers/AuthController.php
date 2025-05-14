@@ -54,7 +54,7 @@ class AuthController extends Controller
                 'role'    => $user['role'],
                 'logged_in' => true
             ]);
-            return redirect()->to('/dashboard');
+            return redirect()->to('/user/dashboard');   
         }
 
         return redirect()->to('/login')->with('error', 'Email atau password salah.');
@@ -105,13 +105,22 @@ class AuthController extends Controller
             'logged_in' => true
         ]);
 
-        return redirect()->to('/dashboard');
+        return redirect()->to('/user/dashboard');
     }
 
     // Logout
     public function logout()
     {
-        session()->destroy();
-        return redirect()->to('/login');
-    }
+        $session = session();
+        
+        // Hancurkan semua data session
+        $session->destroy();
+        
+        // Pastikan session benar-benar kosong
+        $session->remove('logged_in');
+        $session->remove('role');
+        $session->remove('username');
+        
+        return redirect()->to('')->with('message', 'Anda telah logout');
+}
 }

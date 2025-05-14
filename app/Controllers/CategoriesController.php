@@ -8,96 +8,80 @@ use CodeIgniter\RESTful\ResourceController;
 class CategoriesController extends ResourceController
 {
     protected $categoryModel;
+
     public function __construct()
     {
         $this->categoryModel = new \App\Models\CategoryModel();
     }
-    /**
-     * Return an array of resource objects, themselves in array format.
-     *
-     * @return ResponseInterface
-     */
+
     public function index()
     {
-        $data['categories'] = $this->categoryModel->findAll();
-        return view('categories/list_categories', $data);
+        $userId = session()->get('user_id');
+        $data['categories'] = $this->categoryModel->where('user_id', $userId)->findAll();
+
+        return view('user/categories/list_categories', $data);
     }
 
-    /**
-     * Return the properties of a resource object.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function show($id = null)
-    {
-       //
-    }
-
-    /**
-     * Return a new resource object, with default properties.
-     *
-     * @return ResponseInterface
-     */
-    public function store()
-    {
-        $this->categoryModel->save([
-            'name' => $this->request->getPost('name'),
-            'description' => $this->request->getPost('description')
-        ]);
-        return redirect()->to('/categories');
-    }
-
-    /**
-     * Create a new resource object, from "posted" parameters.
-     *
-     * @return ResponseInterface
-     */
     public function create()
     {
-          return view('categories/form');
+        return view('user/categories/form');
     }
 
-    /**
-     * Return the editable properties of a resource object.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
+    public function store()
+    {
+        $userId = session()->get('user_id');
+
+        $this->categoryModel->save([
+            'name'        => $this->request->getPost('name'),
+            'description' => $this->request->getPost('description'),
+            'user_id'     => $userId
+        ]);
+
+        return redirect()->to('user/categories')->with('success', 'Category created successfully.');
+    }
+
     public function edit($id = null)
     {
-         $data['category'] = $this->categoryModel->find($id);
-        return view('categories/form', $data);
+        $userId = session()->get('user_id');
+        $category = $this->categoryModel->where('id', $id)->where('user_id', $userId)->first();
+
+        if (!$category) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Category not found or not authorized');
+        }
+
+        $data['category'] = $category;
+
+        return view('user/categories/form', $data);
     }
 
-    /**
-     * Add or update a model resource, from "posted" properties.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
     public function update($id = null)
     {
-         $this->categoryModel->update($id, [
-            'name' => $this->request->getPost('name'),
+        $userId = session()->get('user_id');
+        $category = $this->categoryModel->where('id', $id)->where('user_id', $userId)->first();
+
+        if (!$category) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Category not found or not authorized');
+        }
+
+        $this->categoryModel->update($id, [
+            'name'        => $this->request->getPost('name'),
             'description' => $this->request->getPost('description')
         ]);
-        return redirect()->to('/categories');
+
+        return redirect()->to('user/categories')->with('success', 'Category updated successfully.');
     }
 
-    /**
-     * Delete the designated resource object from the model.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
     public function delete($id = null)
     {
+        $userId = session()->get('user_id');
+        $category = $this->categoryModel->where('id', $id)->where('user_id', $userId)->first();
+
+        if (!$category) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Category not found or not authorized');
+        }
+
         $this->categoryModel->delete($id);
-        return redirect()->to('/categories');
+
+        return redirect()->to('user/categories')->with('success', 'Category deleted successfully.');
     }
 }

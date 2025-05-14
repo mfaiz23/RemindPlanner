@@ -25,52 +25,27 @@
                   <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="profile-info">
-                    <?php if (session()->get('logged_in')): ?>
+                      <?php if (session()->get('logged_in')): ?>
                       <div class="info">
                         <div class="image">
                           <img src="/assets/images/profile/profile-image.png" alt="" />
                         </div>
-                        <div>
+                      <div>
                           <h6 class="fw-500"><?= esc(session()->get('name')) ?></h6>
                           <p><?= esc(session()->get('email')) ?></p>
-                        </div>
+                    </div>
                       </div>
+                      <?php else: ?>
+  <a class="btn-getstarted" href="/login">Login</a>
+                      
                       <?php endif; ?>
                     </div>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                     <li>
-                      <div class="author-info flex items-center !p-1">
-                        <div class="image">
-                          <img src="/assets/images/profile/profile-image.png" alt="image">
-                        </div>
-                        <div class="content">
-                          <h4 class="text-sm"><?= esc(session()->get('name')) ?></h4>
-                          <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#"><?= esc(session()->get('email')) ?></a>
-                        </div>
-                      </div>
+                      <a href="<?= base_url('/logout') ?>"> <i class="lni lni-exit"></i> Sign Out </a>
                     </li>
-                    <li class="divider"></li>
-                    <li>
-                      <a href="#0">
-                        <i class="lni lni-user"></i> View Profile
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0">
-                        <i class="lni lni-alarm"></i> Notifications
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0"> <i class="lni lni-inbox"></i> Messages </a>
-                    </li>
-                    <li>
-                      <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                      <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
-                    </li>
+                    </ul>
                   </ul>
                 </div>
                 <!-- profile end -->

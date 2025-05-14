@@ -18,7 +18,7 @@
   <body
   >
 
-    <?= $this->renderSection('login') ?>
+    <?= $this->renderSection('content') ?>
    
 
     <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>

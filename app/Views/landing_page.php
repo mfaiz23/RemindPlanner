@@ -46,7 +46,11 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="/login">Login</a>
+      <?php if (session()->get('logged_in')): ?>
+  <a class="btn-getstarted" href="<?= base_url('/user/dashboard')?>">Dashboard</a>
+<?php else: ?>
+  <a class="btn-getstarted" href="/login">Login</a>
+<?php endif; ?>
 
     </div>
   </header>
@@ -65,7 +69,7 @@
             <h2>Aplikasi Remind Planner</h2>
             <p>Solusi untuk mengelola tugas anda dengan mudah, dimana pun dan kapan pun...</p>
             <div class="d-flex mt-4 justify-content-center justify-content-md-start">
-              <a href="#" class="download-btn"> <span>Mulai Rencana</span></a>
+              <a href="/login" class="download-btn"> <span>Mulai Rencana</span></a>
             </div>
           </div>
         </div>

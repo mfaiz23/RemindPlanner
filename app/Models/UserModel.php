@@ -11,6 +11,7 @@ class UserModel extends Model
     protected $allowedFields = ['name', 'email', 'password', 'google_id', 'role'];
     protected $beforeInsert = ['hashPassword'];
 
+
     protected function hashPassword(array $data)
     {
         if (!empty($data['data']['password'])) {

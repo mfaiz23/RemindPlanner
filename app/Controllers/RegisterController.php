@@ -1,87 +1,41 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UserModel;
+use CodeIgniter\Controller;
 
-use CodeIgniter\HTTP\ResponseInterface;
-use CodeIgniter\RESTful\ResourceController;
-
-class RegisterController extends ResourceController
+class RegisterController extends Controller
 {
-    /**
-     * Return an array of resource objects, themselves in array format.
-     *
-     * @return ResponseInterface
-     */
     public function index()
     {
-        //
+        return view('/auth/register');
     }
 
-    /**
-     * Return the properties of a resource object.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function show($id = null)
+    public function store()
     {
-        //
-    }
+        helper(['form']);
 
-    /**
-     * Return a new resource object, with default properties.
-     *
-     * @return ResponseInterface
-     */
-    public function new()
-    {
-        //
-    }
+        $rules = [
+            'username' => 'required|min_length[3]|max_length[20]',
+            'email'    => 'required|valid_email|is_unique[users.email]',
+            'password' => 'required|min_length[6]',
+        ];
 
-    /**
-     * Create a new resource object, from "posted" parameters.
-     *
-     * @return ResponseInterface
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Return the editable properties of a resource object.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function edit($id = null)
-    {
-        //
-    }
-
-    /**
-     * Add or update a model resource, from "posted" properties.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function update($id = null)
-    {
-        //
-    }
-
-    /**
-     * Delete the designated resource object from the model.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function delete($id = null)
-    {
-        //
+        if ($this->validate($rules)) {
+            $model = new UserModel();
+            $data = [
+                'name'     => $this->request->getVar('username'), // sesuaikan ke 'name'
+                'email'    => $this->request->getVar('email'),
+                'password' => $this->request->getVar('password'), // tidak perlu hash manual, sudah otomatis
+                'role' => 'user',
+            ];
+            
+            $model->save($data);
+            return redirect()->to('/login')->with('success', 'Registrasi berhasil. Silakan login.');
+        } else {
+            return view('/auth/register', [
+                'validation' => $this->validator
+            ]);
+        }
     }
 }

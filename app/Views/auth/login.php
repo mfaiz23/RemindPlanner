@@ -1,6 +1,6 @@
 <?= $this->extend('templates/auth/main') ?>
 
-<?= $this->section('login') ?>
+<?= $this->section('content') ?>
 <section class="signin-section">
         <div class="row g-0 auth-row">
             <div class="col-lg-6">
@@ -31,7 +31,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <form action="<?= base_url('auth/login') ?>" method="post">
+                        <form action="<?= base_url('/login/proses') ?>" method="post">
                             <?= csrf_field() ?>
                             <div class="row">
                                 <div class="col-12">
@@ -88,7 +88,7 @@
                             </div>
                             <p class="text-sm text-medium text-dark text-center">
                                 Don't have any account yet?
-                                <a href="<?= base_url('auth/register') ?>">Create an account</a>
+                                <a href="<?= base_url('/register') ?>">Create an account</a>
                             </p>
                         </div>
                     </div>

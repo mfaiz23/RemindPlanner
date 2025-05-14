@@ -5,7 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class DashboardController extends ResourceController
+class UserController extends ResourceController
 {
     /**
      * Return an array of resource objects, themselves in array format.
@@ -14,7 +14,7 @@ class DashboardController extends ResourceController
      */
     public function index()
     {
-                $session = session();
+        $session = session();
         $data = [
             'role' => $session->get('role'), // Kirim role ke view
             'logged_in' => $session->get('logged_in')

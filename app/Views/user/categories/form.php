@@ -1,4 +1,4 @@
-<?= $this->extend ('templates/dashboard/main') ?>
+<?= $this->extend ('templates/dashboard_user/main') ?>
 
 <?= $this->section ('content') ?>
 
@@ -20,7 +20,7 @@
                   </div>
 
         <button type="submit" class="main-btn primary-btn rounded-full btn-hover"><a ><?= isset($category) ? 'Update' : 'Create' ?></a></button>
-        <a href="<?= base_url('categories') ?>" class="main-btn danger-btn-outline rounded-full btn-hover ml-10">Cancel</a>
+        <a href="<?= base_url('user/categories') ?>" class="main-btn danger-btn-outline rounded-full btn-hover ml-10">Cancel</a>
 
     </form>
 </div>
