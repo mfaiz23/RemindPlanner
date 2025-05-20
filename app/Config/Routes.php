@@ -37,7 +37,13 @@ $routes->get('tasks/edit/(:num)', 'TasksController::edit/$1');
 $routes->post('tasks/update/(:num)', 'TasksController::update/$1');
 $routes->get('tasks/delete/(:num)', 'TasksController::delete/$1');
 $routes->get('user/tasks/list_task', 'TasksController::index');
+$routes->get('user/calendar/calendartest', 'CalendarController::index');
+$routes->get('user/calendar/events', 'CalendarController::events');
 });
+
+
+
+
 
 
 

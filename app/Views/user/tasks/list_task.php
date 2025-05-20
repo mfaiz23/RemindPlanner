@@ -7,11 +7,10 @@
             <div class="col-md-6">
                 <div class="title">
                     <h2>List Tasks
-                        <a href="<?= base_url('user/tasks/create') ?>" class="main-btn primary-btn btn-hover p-2 ml-10">
-                            <i class="lni lni-plus mr-5"></i>Add New Task
-                        </a>
+                        
                     </h2>
                 </div>
+                
             </div>
             <div class="col-md-6">
                 <div class="breadcrumb-wrapper">
@@ -24,6 +23,11 @@
                 </div>
             </div>
         </div>
+        <div align="right">
+        <a href="<?= base_url('user/tasks/create') ?>" class="main-btn primary-btn btn-hover p-2 mb-3">
+                            <i class="lni lni-plus mr-5"></i>Add New Task
+                        </a>
+         </div>
     </div>
 
     <div class="tables-wrapper">
