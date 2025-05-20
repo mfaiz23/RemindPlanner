@@ -8,85 +8,58 @@ use CodeIgniter\RESTful\ResourceController;
 class DashboardController extends ResourceController
 {
     /**
-     * Return an array of resource objects, themselves in array format.
+     * Return user dashboard
      *
      * @return ResponseInterface
      */
     public function index()
     {
-                $session = session();
+        $session = session();
+        $userId = $session->get('user_id');
+    
+        $taskModel = new \App\Models\TaskModel();
+        $categoryModel = new \App\Models\CategoryModel();
+    
+        $totalTasks = $taskModel->where('user_id', $userId)->countAllResults();
+        $totalCategories = $categoryModel->where('user_id', $userId)->countAllResults();
+    
         $data = [
-            'role' => $session->get('role'), // Kirim role ke view
-            'logged_in' => $session->get('logged_in')
+            'total_tasks' => $totalTasks,
+            'total_categories' => $totalCategories,
+            'role' => $session->get('role'),
+            'logged_in' => $session->get('logged_in'),
         ];
+    
         return view('user/dashboard/user', $data);
     }
+    
 
     /**
-     * Return the properties of a resource object.
-     *
-     * @param int|string|null $id
+     * Return admin dashboard
      *
      * @return ResponseInterface
      */
-    public function show($id = null)
-    {
-        //
-    }
+    public function admin()
+{
+    $session = session();
+    $userModel = new \App\Models\UserModel();
+    $taskModel = new \App\Models\TaskModel(); // ← Tambahkan ini
+    
+    // Get statistics for admin dashboard
+    $totalUsers = $userModel->countAll();
+    $newUsers = $userModel->where('created_at >=', date('Y-m-d', strtotime('-30 days')))->countAllResults();
+    
+    $data = [
+        'role' => $session->get('role'),
+        'logged_in' => $session->get('logged_in'),
+        'total_users' => $totalUsers,
+        'new_users' => $newUsers,
+        'total_tasks_user' => $taskModel->countAll(), // ← Pakai variabel yang sudah dibuat
+    ];
 
-    /**
-     * Return a new resource object, with default properties.
-     *
-     * @return ResponseInterface
-     */
-    public function new()
-    {
-        //
-    }
+    return view('admin/dashboard', $data);
+}
 
-    /**
-     * Create a new resource object, from "posted" parameters.
-     *
-     * @return ResponseInterface
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Return the editable properties of a resource object.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function edit($id = null)
-    {
-        //
-    }
-
-    /**
-     * Add or update a model resource, from "posted" properties.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function update($id = null)
-    {
-        //
-    }
-
-    /**
-     * Delete the designated resource object from the model.
-     *
-     * @param int|string|null $id
-     *
-     * @return ResponseInterface
-     */
-    public function delete($id = null)
-    {
-        //
-    }
+    // ... (keep the rest of the methods as they are)
 }

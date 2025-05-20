@@ -2,27 +2,39 @@
 
 namespace App\Filters;
 
+use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use CodeIgniter\Filters\FilterInterface;
 
 class RoleCheck implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
         $session = session();
-
-        // Cek apakah sudah login
+        
+        // If not logged in, redirect to login
         if (!$session->get('logged_in')) {
-            return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu.');
+            return redirect()->to('/login');
         }
-
-        // Cek apakah role sesuai
-        $requiredRole = $arguments[0] ?? null;
-        if ($requiredRole && $session->get('role') !== $requiredRole) {
-            return redirect()->to('/login')->with('error', 'Akses ditolak.');
+        
+        // Check role if arguments are provided
+        if (!empty($arguments)) {
+            $requiredRole = $arguments[0];
+            $userRole = $session->get('role');
+            
+            if ($userRole !== $requiredRole) {
+                // Redirect to appropriate dashboard based on role
+                if ($userRole === 'admin') {
+                    return redirect()->to('admin/dashboard');
+                } else {
+                    return redirect()->to('user/dashboard');
+                }
+            }
         }
     }
 
-    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null) {}
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    {
+        // Do something here if needed
+    }
 }

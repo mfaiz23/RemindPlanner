@@ -29,6 +29,25 @@ class TasksController extends Controller
 
     return view('user/tasks/list_task', ['tasks' => $tasks]);
     }
+    public function updateStatus()
+{
+    if ($this->request->isAJAX()) {
+        $data = $this->request->getJSON();
+
+        $taskModel = new \App\Models\TaskModel();
+        $updated = $taskModel->update($data->id, [
+            'status' => $data->status
+        ]);
+
+        if ($updated) {
+            return $this->response->setJSON(['success' => true]);
+        } else {
+            return $this->response->setJSON(['success' => false]);
+        }
+    }
+
+    return $this->response->setStatusCode(400)->setJSON(['success' => false, 'message' => 'Invalid request']);
+}
 
     public function create()
     {
