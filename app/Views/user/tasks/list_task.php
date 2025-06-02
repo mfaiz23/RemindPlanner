@@ -59,7 +59,7 @@
     <div class="status-wrapper" id="status-wrapper-<?= $task['id'] ?>">
         <!-- Badge -->
         <?php
-            $status = $task['status'];
+            $status = $task['status'] ?? 'pending';
             $badgeClass = [
                 'pending' => 'bg-warning',
                 'in_progress' => 'bg-info',

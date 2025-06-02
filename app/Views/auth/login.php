@@ -59,7 +59,7 @@
 
                                 <div class="col-xxl-6 col-lg-12 col-md-6">
                                     <div class="text-start text-md-end text-lg-start text-xxl-end mb-30">
-                                        <a href="<?= base_url('auth/forgot-password') ?>" class="hover-underline">
+                                        <a href="<?= base_url('/forgot_password') ?>" class="hover-underline">
                                             Forgot Password?
                                         </a>
                                     </div>
