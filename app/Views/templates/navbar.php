@@ -9,7 +9,7 @@
                     <i class="lni lni-chevron-left me-2"></i> Menu
                   </button>
                 </div>
-                
+                <h3>Remind Planner</h3>
               </div>
             </div>
             <div class="col-lg-7 col-md-7 col-6">

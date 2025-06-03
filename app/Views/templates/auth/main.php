@@ -13,8 +13,7 @@
     <link href="<?= base_url('assets/css/loading-bar.min.css') ?>" rel="stylesheet">
     <title>Remind Planner</title>
   </head>
-  <body
-  >
+  <body>
 
     <?= $this->renderSection('content') ?>
    

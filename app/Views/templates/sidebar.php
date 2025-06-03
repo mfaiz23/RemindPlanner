@@ -1,7 +1,8 @@
 <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
       <a href="<?= base_url('/user/dashboard') ?>">
-          <h3>Remind Planner</h3>
+          <img width="100%" src="<?= base_url('assets/images/logo/logo-2.svg') ?>" alt="">
+          
         </a>
       </div>
       <nav class="sidebar-nav">

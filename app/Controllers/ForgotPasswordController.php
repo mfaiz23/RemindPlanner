@@ -36,12 +36,12 @@ class ForgotPasswordController extends BaseController
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = '';      // ganti dengan emailmu
-            $mail->Password   = '';  // gunakan app password dari Google
+            $mail->Username   = 'cvremindplanner@gmail.com';      // ganti dengan emailmu
+            $mail->Password   = 'shkz wgsp sseo gcht';  // gunakan app password dari Google
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
-            $mail->setFrom('', '');
+            $mail->setFrom('cvremindplanner@gmail.com', 'remind planner');
             $mail->addAddress($email);
 
             $mail->isHTML(true);

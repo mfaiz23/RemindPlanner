@@ -2,10 +2,20 @@
 namespace App\Controllers;
 
 use App\Models\TaskModel;
+use App\Models\CategoryModel;
 use CodeIgniter\Controller;
 
 class CalendarController extends BaseController
 {
+    protected $taskModel;
+    protected $categoryModel;
+
+    public function __construct()
+    {
+        $this->taskModel = new TaskModel();
+        $this->categoryModel = new CategoryModel();
+    }
+
     public function index()
     {
         return view('user/calendar/calendartest');
@@ -19,8 +29,12 @@ class CalendarController extends BaseController
             return $this->response->setJSON([]);
         }
 
-        $model = new TaskModel();
-        $tasks = $model->where('user_id', $userId)->findAll();
+        // Ambil data task beserta kategori terkait
+        $tasks = $this->taskModel
+            ->select('tasks.*, categories.name as category_name')
+            ->join('categories', 'categories.id = tasks.c_id', 'left')
+            ->where('tasks.user_id', $userId)
+            ->findAll();
 
         $events = [];
 
@@ -45,11 +59,17 @@ class CalendarController extends BaseController
             }
 
             $events[] = [
+                'id' => $task['id'], 
                 'title' => $task['title'],
                 'start' => $task['due_date'],
-                // 'url'   => site_url('tasks/detail/' . $task['id']),
                 'color' => $color,
-                'textColor' => '#ffffff', // Warna teks putih untuk kontras
+                'textColor' => '#ffffff',
+                'extendedProps' => [
+                    'description' => $task['description'] ?? '',
+                    'status' => $task['status'] ?? 'No status',
+                    'category_name' => $task['category_name'] ?? 'No category',
+                    'taskId' => $task['id']
+                ]
             ];
         }
 

@@ -5,10 +5,11 @@ namespace App\Controllers;
 use App\Models\TaskModel;
 use App\Models\CategoryModel;
 use CodeIgniter\Controller;
-
+use CodeIgniter\API\ResponseTrait;
 
 class TasksController extends Controller
 {
+    use ResponseTrait;
     protected $taskModel;
     protected $categoryModel;
 

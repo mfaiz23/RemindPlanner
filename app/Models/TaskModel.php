@@ -17,7 +17,8 @@ class TaskModel extends Model
     'due_date',
     'status',
     'user_id',
-    'c_id',];
+    'c_id',
+    'reminder_sent'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -49,5 +50,16 @@ class TaskModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    public function getTasksWithUserInfo($date)
+    {
+    return $this->select('tasks.*, users.email as user_email, users.name as user_name')
+                ->join('users', 'users.id = tasks.user_id')
+                ->where('reminder_sent', 0)
+                ->where('DATE(due_date)', $date)
+                ->findAll();
+}
+
 
 }
+
+

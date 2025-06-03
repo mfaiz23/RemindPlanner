@@ -9,7 +9,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <<link rel="icon" href="<?= base_url('/favicon.png') ?>" type="image/png">
+  <link rel="icon" href="<?= base_url('/favicon.png') ?>" type="image/png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
