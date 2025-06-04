@@ -36,12 +36,12 @@ class ForgotPasswordController extends BaseController
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'cvremindplanner@gmail.com';      // ganti dengan emailmu
-            $mail->Password   = 'shkz wgsp sseo gcht';  // gunakan app password dari Google
+            $mail->Username   = '';      // ganti dengan emailmu
+            $mail->Password   = '';  // gunakan app password dari Google
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
-            $mail->setFrom('cvremindplanner@gmail.com', 'remind planner');
+            $mail->setFrom('', 'Remind Planner');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
@@ -108,12 +108,12 @@ public function resendOtp()
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'cvremindplanner@gmail.com'; // email kamu
-        $mail->Password   = 'shkz wgsp sseo gcht';        // app password
+        $mail->Username   = ''; // email kamu
+        $mail->Password   = '';        // app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
-        $mail->setFrom('cvremindplanner@gmail.com', 'Remind Planner');
+        $mail->setFrom('', 'Remind Planner');
         $mail->addAddress($email);
 
         $mail->isHTML(true);

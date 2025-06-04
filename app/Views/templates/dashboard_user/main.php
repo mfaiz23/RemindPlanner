@@ -7,6 +7,7 @@
     
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.css" rel="stylesheet">
+    <link rel="icon" href="<?= base_url('/favicon.png') ?>" type="image/png">
     
     <!-- Other CSS -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">

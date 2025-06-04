@@ -29,7 +29,10 @@ $routes->get('/forgot_password/resend_otp', 'ForgotPasswordController::resendOtp
 // Admin routes
 $routes->group('', ['filter' => 'rolecheck:admin'], function($routes) {
     $routes->get('admin/dashboard', 'DashboardController::admin');
-    $routes->get('admin/users', 'UserManagementController::index');
+    $routes->get('admin/users', 'UserListController::index');
+    $routes->post('admin/users/delete/(:num)', 'UserListController::delete/$1');
+    $routes->get('admin/users/delete/(:num)', 'UserListController::confirmDelete/$1');
+     $routes->get('admin/tasks', 'TaskListController::index');
     // Add more admin routes as needed
 });
 

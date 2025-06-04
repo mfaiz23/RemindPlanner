@@ -50,7 +50,7 @@ class TaskModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getTasksWithUserInfo($date)
+    public function getTasksWithUserInfo ($date)
     {
     return $this->select('tasks.*, users.email as user_email, users.name as user_name')
                 ->join('users', 'users.id = tasks.user_id')
@@ -58,7 +58,15 @@ class TaskModel extends Model
                 ->where('DATE(due_date)', $date)
                 ->findAll();
 }
+    public function getTasksWithUserInfoAdmin ()
+    {
+        {
+    return $this->select('tasks.*, users.email as user_email, users.name as user_name')
+                ->join('users', 'users.id = tasks.user_id')
+                ->findAll();
+}
 
+    }
 
 }
 

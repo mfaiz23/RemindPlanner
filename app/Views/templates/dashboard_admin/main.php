@@ -9,6 +9,7 @@
     <!-- FullCalendar CSS -->
     
     <!-- Other CSS -->
+     <link rel="icon" href="<?= base_url('/favicon.png') ?>" type="image/png">
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/main.css') ?>" rel="stylesheet">
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">

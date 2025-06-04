@@ -1,8 +1,7 @@
 <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
       <a href="<?= base_url('/user/dashboard') ?>">
-          <img width="100%" src="<?= base_url('assets/images/logo/logo-2.svg') ?>" alt="">
-          
+          <img width="100%" src="<?= base_url('assets/images/logo/rp.png') ?>" alt="">
         </a>
       </div>
       <nav class="sidebar-nav">
