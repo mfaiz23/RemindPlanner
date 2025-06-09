@@ -1,0 +1,20 @@
+/* Active menu item styling */
+.sidebar-nav ul .nav-item.active > a {
+    color: #365CF5 !important;
+    background: rgba(54, 92, 245, 0.1);
+    border-radius: 5px;
+}
+
+.sidebar-nav ul .nav-item.active > a .icon {
+    color: #365CF5 !important;
+}
+
+.sidebar-nav ul .nav-item.active > a svg {
+    fill: #365CF5;
+}
+
+/* Hover effect for menu items */
+.sidebar-nav ul .nav-item > a:hover {
+    background: rgba(54, 92, 245, 0.05);
+    border-radius: 5px;
+}

@@ -68,7 +68,11 @@
             <h2>Aplikasi Remind Planner</h2>
             <p>Solusi untuk mengelola tugas anda dengan mudah, dimana pun dan kapan pun...</p>
             <div class="d-flex mt-4 justify-content-center justify-content-md-start">
-              <a href="/login" class="download-btn"> <span>Mulai Rencana</span></a>
+              <?php if (session()->get('logged_in')): ?>
+                <a href="<?= base_url('/user/dashboard')?>" class="download-btn"> <span>Mulai Rencana</span></a>
+              <?php else: ?>
+                <a href="/login" class="download-btn"> <span>Mulai Rencana</span></a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -81,29 +85,32 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>About Us</h2>
+      
       </div><!-- End Section Title -->
 
       <div class="container">
-
+        <!--Profil kelompok -->
         <div class="row gy-4">
-
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
-            </ul>
+          <div class="col-md-3 text-center">
+            
+            <h5>Fajar Fathurrozak</h5>
+            <p>2250081123</p>
           </div>
+          <div class="col-md-3 text-center">
+          
+            <h5>M. Faiz Nur Ramadhan</h5>
+            <p>2250081137</p>
+          </div>
+          <div class="col-md-3 text-center">
+          
+            <h5>Paskal Firdaus I</h5>
+            <p>2250081143</p>
+          </div>
+          <div class="col-md-3 text-center">
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <h5>Tubagus Mochamad Kariza</h5>
+            <p>2250081129</p>
           </div>
 
         </div>
@@ -126,29 +133,14 @@
           <div class="footer-contact pt-3">
             <p>Jl Jenderal Soedirman</p>
             <p>Cimahi, Jawa Barat</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+62</span></p>
-            <p><strong>Email:</strong> <span>info@if.unjani.ac.id</span></p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+628986552324</span></p>
+            <p><strong>Email:</strong> <span>cvremindplanner@gmail.com</span></p>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-          </ul>
-        </div>
 
 
-        <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <div class="social-links d-flex">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
+
 
       </div>
     </div>

@@ -14,7 +14,7 @@ class SendTaskReminder extends BaseCommand
     public function run(array $params)
     {
         $taskModel = new TaskModel();
-    $emailLib = new Email();
+        $emailLib = new Email();
 
     $tomorrow = date('Y-m-d', strtotime('+1 day'));
 

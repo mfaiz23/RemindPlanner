@@ -7,6 +7,19 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+// Route to serve uploaded profile images
+$routes->get('writable/uploads/profile/(:any)', function($filename) {
+    $filepath = WRITEPATH . 'uploads/profile/' . $filename;
+    if (file_exists($filepath)) {
+        $mime = mime_content_type($filepath);
+        header('Content-Type: ' . $mime);
+        readfile($filepath);
+        exit;
+    } else {
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+    }
+});
+
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login/proses', 'AuthController::prosesLogin');
 $routes->get('/auth/googleCallback', 'AuthController::googleCallback');
@@ -24,7 +37,9 @@ $routes->post('/forgot_password/update_password', 'ForgotPasswordController::upd
 $routes->get('/reset_password', 'ForgotPasswordController::reset_password');
 $routes->get('/forgot_password/resend_otp', 'ForgotPasswordController::resendOtp');
 
-
+// Static Pages Routes
+$routes->get('/terms', 'StaticPagesController::terms');
+$routes->get('/privacy', 'StaticPagesController::privacy');
 
 // Admin routes
 $routes->group('', ['filter' => 'rolecheck:admin'], function($routes) {
@@ -39,6 +54,8 @@ $routes->group('', ['filter' => 'rolecheck:admin'], function($routes) {
 // User routes
 $routes->group('', ['filter' => 'rolecheck:user'], function($routes) {
     $routes->get('user/dashboard', 'DashboardController::index');
+    $routes->get('user/profile/edit', 'UserController::editProfile');
+    $routes->post('user/profile/update', 'UserController::updateProfile');
     $routes->get('user/categories', 'CategoriesController::index');
     $routes->get('categories/create', 'CategoriesController::create');
     $routes->post('categories/store', 'CategoriesController::store');

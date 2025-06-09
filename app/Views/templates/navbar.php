@@ -28,7 +28,11 @@
                       <?php if (session()->get('logged_in')): ?>
                       <div class="info">
                         <div class="image">
-                          <img src="/assets/images/profile/profile-image.png" alt="" />
+                          <?php if (session()->get('profile_image')): ?>
+                            <img src="<?= base_url('writable/uploads/profile/' . session()->get('profile_image')) ?>" alt="Profile" />
+                          <?php else: ?>
+                            <img src="<?= base_url('assets/images/profile/profile-image.png') ?>" alt="Default Profile" />
+                          <?php endif; ?>
                         </div>
                       <div>
                           <h6 class="fw-500"><?= esc(session()->get('name')) ?></h6>
@@ -43,9 +47,11 @@
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                     <li>
+                      <a href="<?= base_url('user/profile/edit') ?>"> <i class="lni lni-user"></i> Edit Profile </a>
+                    </li>
+                    <li>
                       <a href="<?= base_url('/logout') ?>"> <i class="lni lni-exit"></i> Sign Out </a>
                     </li>
-                    </ul>
                   </ul>
                 </div>
                 <!-- profile end -->

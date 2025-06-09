@@ -5,7 +5,7 @@
               <div class="copyright text-center text-md-start">
                 <p class="text-sm">
                   Designed and Developed by
-                  <a href="#" rel="nofollow" target="_blank">
+                  <a href= "<?= base_url('/') ?>" rel="nofollow" target="_blank">
                     Remind Planner
                   </a>
                 </p>
@@ -14,8 +14,8 @@
             <!-- end col-->
             <div class="col-md-6">
               <div class="terms d-flex justify-content-center justify-content-md-end">
-                <a href="#0" class="text-sm">Term & Conditions</a>
-                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+                <a href="<?= base_url('/terms') ?>" class="text-sm">Terms & Conditions</a>
+                <a href="<?= base_url('/privacy') ?>" class="text-sm ml-15">Privacy Policy</a>
               </div>
             </div>
           </div>

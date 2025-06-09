@@ -41,7 +41,7 @@ class ForgotPasswordController extends BaseController
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;
 
-            $mail->setFrom('', 'Remind Planner');
+            $mail->setFrom('', '');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
@@ -113,7 +113,7 @@ public function resendOtp()
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
-        $mail->setFrom('', 'Remind Planner');
+        $mail->setFrom('', '');
         $mail->addAddress($email);
 
         $mail->isHTML(true);

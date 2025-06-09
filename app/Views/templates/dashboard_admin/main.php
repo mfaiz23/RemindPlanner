@@ -16,6 +16,7 @@
     <link href="<?= base_url('assets/css/materialdesignicons.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/morris.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/loading-bar.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/custom.css') ?>" rel="stylesheet">
 
     <title>Remind Planner</title>
   </head>

@@ -73,11 +73,16 @@ class TasksController extends Controller
             $c_id = null;
         }
 
+        $status = $this->request->getPost('status');
+        if (empty($status)) {
+            $status = 'pending';
+        }
+
         $data = [
             'title'       => $this->request->getPost('title'),
             'description' => $this->request->getPost('description'),
             'due_date'    => $this->request->getPost('due_date'),
-            'status'      => $this->request->getPost('status'),
+            'status'      => $status,
             'c_id'        => $c_id,
             'user_id'     => $userId,
         ];
@@ -121,14 +126,19 @@ class TasksController extends Controller
             $c_id = null;
         }
         if ($due_date && strtotime($due_date) < strtotime(date('Y-m-d'))) {
-    return redirect()->back()->withInput()->with('error', 'Due date cannot be in the past.');
-}
+            return redirect()->back()->withInput()->with('error', 'Due date cannot be in the past.');
+        }
+
+        $status = $this->request->getPost('status');
+        if (empty($status)) {
+            $status = $task['status'];
+        }
 
         $this->taskModel->update($id, [
             'title'       => $this->request->getPost('title'),
             'description' => $this->request->getPost('description'),
             'due_date'    => $due_date,
-            'status'      => $this->request->getPost('status'),
+            'status'      => $status,
             'c_id'        => $c_id,
         ]);
 

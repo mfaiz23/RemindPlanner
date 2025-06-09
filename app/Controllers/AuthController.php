@@ -52,6 +52,7 @@ class AuthController extends Controller
                 'name'    => $user['name'],
                 'email'   => $user['email'],
                 'role'    => $user['role'],
+                'profile_image' => $user['profile_image'],
                 'logged_in' => true
             ]);
             return redirect()->to('/user/dashboard');   
@@ -102,6 +103,7 @@ class AuthController extends Controller
             'name'      => $user['name'],
             'email'     => $user['email'],
             'role'      => $user['role'],
+            'profile_image' => $user['profile_image'],
             'logged_in' => true
         ]);
 
@@ -120,6 +122,7 @@ class AuthController extends Controller
         $session->remove('logged_in');
         $session->remove('role');
         $session->remove('username');
+        $session->remove('profile_image');
         
         return redirect()->to('')->with('message', 'Anda telah logout');
 }

@@ -53,7 +53,7 @@
                                             <td><p><?= esc($task['description']) ?></p></td>
                                             <td><p><?= date('d M Y', strtotime($task['due_date'])) ?></p></td>
                                             <td>
-                                                <span class="badge <?= $task['status'] === 'completed' ? 'bg-success' : ($task['status'] === 'in_progress' ? 'bg-warning' : 'bg-secondary') ?>">
+                                                <span class="badge <?= $task['status'] === 'completed' ? 'bg-success' : ($task['status'] === 'in_progress' ? 'bg-primary' : ($task['status'] === 'pending' ? 'bg-warning' : 'bg-danger')) ?>">
                                                     <?= esc(ucfirst($task['status'])) ?>
                                                 </span>
                                             </td>
