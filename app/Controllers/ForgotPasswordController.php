@@ -143,8 +143,7 @@ public function update_password()
         return redirect()->back()->with('error', 'Password minimal 6 karakter.');
     }
 
-    // Hash password baru
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
 
     // Update password di database (ganti 'users' & kolom sesuai model kamu)
     $userModel = new \App\Models\UserModel();
@@ -154,7 +153,7 @@ public function update_password()
         return redirect()->to('/forgot_password')->with('error', 'User tidak ditemukan.');
     }
 
-    $userModel->update($user['id'], ['password' => $hashedPassword]);
+    $userModel->update($user['id'], ['password' => $password]);
 
     // Hapus session OTP dan email
     session()->remove(['otp_code', 'otp_email', 'otp_expire']);

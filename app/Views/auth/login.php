@@ -48,14 +48,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xxl-6 col-lg-12 col-md-6">
-                                    <div class="form-check checkbox-style mb-30">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="checkbox-remember" />
-                                        <label class="form-check-label" for="checkbox-remember">
-                                            Remember me next time
-                                        </label>
-                                    </div>
-                                </div>
 
                                 <div class="col-xxl-6 col-lg-12 col-md-6">
                                     <div class="text-start text-md-end text-lg-start text-xxl-end mb-30">

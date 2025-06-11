@@ -43,7 +43,7 @@ class Email extends BaseConfig
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 587;
+public int $SMTPPort = 587;
 
     /**
      * SMTP Timeout (in seconds)
@@ -59,7 +59,7 @@ class Email extends BaseConfig
      * SMTP Encryption.
      *
      * @var string '', 'tls' or 'ssl'. 'tls' will issue a STARTTLS command
-     *             to the server. 'ssl' means implicit SSL. Connection on port
+     *             to the server. 'ssl' will means implicit SSL. Connection on port
      *             465 should set this to ''.
      */
     public string $SMTPCrypto = 'tls';
